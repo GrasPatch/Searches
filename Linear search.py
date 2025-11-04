@@ -1,19 +1,24 @@
+import random
+
 # Linear search
-nlist = [1, 58, 69, 420, 345, 293, 32, 97]
+nlist = [random.randrange(1, 101) for x in range(1000)]
 found = False
 
+# User enters data item
 searchTerm = int(input("Enter a term to search for: "))
 
-for x in range(len(nlist)):
+# Searches nlist until it finds data item
 
-    if (searchTerm == nlist[x]):
-
-        found = True
-
-if (found == True):
-
-     print("Found", searchTerm)
+Positions = []
+Found = 0
+for i in range(0, len(nlist)):
+    if nlist[i] == searchTerm:
+        Found += 1
+        Positions.append(str(i)+",")
+        
+if (Found != 0):
+    print("Found", searchTerm, "in", "".join(Positions))
 
 else:
-
     print("Couldn't find", searchTerm)
+
