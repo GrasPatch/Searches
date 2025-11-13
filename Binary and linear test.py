@@ -14,7 +14,7 @@ def binary():
     found = False
     
     #Creates a random list with 10000 values and sorts it
-    wlist = [random.randint(1, 1001) for x in range (1000)]
+    wlist = [random.randint(1, 1000) for x in range (1, 1001)]
     wlist.sort()
 
     print("this is a binary search(Values 1-1000)")
@@ -50,7 +50,7 @@ def binary():
 def linear():
     
     #Creates a random list with 100 values
-    nlist = [random.randint(1, 101) for x in range (100)]
+    nlist = [random.randint(1, 100) for x in range (1, 101)]
     print("This is a linear search(Values 1-100)")
     
     #Asks the user to input what term they want to search for
@@ -69,3 +69,4 @@ def linear():
         print("Couldn't find", searchterm)
         
 menu()
+
