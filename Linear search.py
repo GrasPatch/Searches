@@ -2,7 +2,6 @@ import random
 
 # Linear search
 nlist = [random.randrange(1, 101) for x in range(1000)]
-found = False
 
 # User enters data item
 searchTerm = int(input("Enter a term to search for: "))
@@ -21,4 +20,5 @@ if (Found != 0):
 
 else:
     print("Couldn't find", searchTerm)
+
 
