@@ -1,0 +1,50 @@
+def read_scores(filename):
+    records = []
+    with open(filename, "r") as file:
+        for line in file:
+            # Remove spaces and split by comma
+            parts = line.strip().split(",")
+            if len(parts) == 3:
+                name = parts[0].strip()
+                game = parts[1].strip()
+                score = int(parts[2].strip())
+                records.append({"name": name, "game": game, "score": score})
+    return records
+
+
+def display_all_scores(records):
+    print("\nAll Player Scores:")
+    for r in records:
+        print(f"{r['name']} - {r['game']} - {r['score']}")
+
+
+def main():
+    # 1. Read the file
+    records = read_scores("scores.txt")
+
+    # 2. Display all player scores
+    display_all_scores(records)
+
+    # 3. Ask which game to view
+    chosen_game = input("\nWhich game do you want to view? ").strip()
+
+    # 4. Output players who play that game
+    print(f"\nPlayers who play {chosen_game}:")
+    game_players = [r for r in records if r['game'].lower() == chosen_game.lower()]
+
+    if not game_players:
+        print("No players found for that game.")
+    else:
+        for p in game_players:
+            print(f"{p['name']} - {p['score']}")
+
+        # Find highest score
+        highest = max(p['score'] for p in game_players)
+        print(f"\nHighest score for {chosen_game}: {highest}")
+
+    # 5. End message
+    print("\nThanks for checking the leaderboard!")
+
+
+# Run the program
+main()
